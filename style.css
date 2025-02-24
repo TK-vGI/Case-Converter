@@ -1,0 +1,24 @@
+div {
+    font-size: 12pt;
+    text-align: center;
+}
+.title {
+    font-size: 18pt;
+    text-align: center;
+}
+
+button {
+    background-color: #FA8072;
+    height: 20pt;
+    width: auto;
+    border: none;
+    border-radius: 5px;
+    font-size: large;
+    margin-left: 5%;
+}
+
+textarea {
+    margin-left: 5%;
+    height: 150px;
+    width: 800px;
+}

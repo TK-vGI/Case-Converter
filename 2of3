@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Stage 2/3:The converter</title>
+</head>
+<body>
+    <div class ="title">
+        <h1>Case Converter</h1>
+    </div>
+    <label>
+    <textarea  rows="10" cols="55"></textarea>
+    </label>
+
+    <p>
+        <button id="upper-case">Upper Case</button>
+        <button id="lower-case">Lower Case</button>
+        <button id="proper-case">Proper Case</button>
+        <button id="sentence-case">Sentence Case</button>
+    </p>
+
+    <script>
+        document.getElementById("upper-case").addEventListener("click", function() {
+            let words = document.querySelector('textarea').value.toUpperCase().split(' ');
+            document.querySelector('textarea').value = words.join(' ');
+        });
+
+        document.getElementById("lower-case").addEventListener("click", function() {
+            let words = document.querySelector('textarea').value.toLowerCase().split(' ');
+            document.querySelector('textarea').value = words.join(' ');
+        });
+
+        document.getElementById("sentence-case").addEventListener("click", function() {
+            let str = document.querySelector('textarea').value.toLowerCase().split('.');
+            let new_str = [];
+            for (let i = 0; i < str.length-1; i++) {
+                let words = str[i].split(' ');
+                if (words[0] === '') { words.splice(0, 1); }
+                words[0] = words[0].charAt(0).toUpperCase() + words[0].slice(1);
+                new_str[i]= words.join(' ') + '.';
+            }
+            document.querySelector('textarea').value = new_str.join(' ');
+        });
+
+        document.getElementById("proper-case").addEventListener("click", function() {
+            let str = document.querySelector('textarea').value.toLowerCase().split('.');
+            let new_str = [];
+            for (let i = 0; i < str.length-1; i++) {
+                let words = str[i].split(' ');
+                if (words[0] === '') { words.splice(0, 1); }
+                for (let j = 0; j < words.length; j++) {
+                    words[j]= words[j].charAt(0).toUpperCase() + words[j].substring(1);
+                }
+                new_str[i]= words.join(' ') + '.';
+            }
+            document.querySelector('textarea').value = new_str.join(' ');
+        });
+    </script>
+</body>
+</html>
